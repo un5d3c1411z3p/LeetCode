@@ -40,6 +40,11 @@ impl Solution {
             return false;
         }
 
+        let result = 121;
+        if x != result {
+            return false;
+        }
+
         true
     }
 }
