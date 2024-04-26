@@ -41,11 +41,7 @@ impl Solution {
         }
 
         let result = Self::reverse_digits(x);
-        if x != result {
-            return false;
-        }
-
-        true
+        x == result
     }
 
     fn reverse_digits(x: i32) -> i32 {
