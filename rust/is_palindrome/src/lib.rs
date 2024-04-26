@@ -40,12 +40,16 @@ impl Solution {
             return false;
         }
 
-        let result = 121;
+        let result = Self::reverse_digits(x);
         if x != result {
             return false;
         }
 
         true
+    }
+
+    fn reverse_digits(x: i32) -> i32 {
+        121
     }
 }
 
