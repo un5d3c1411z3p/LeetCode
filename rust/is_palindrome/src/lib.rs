@@ -49,7 +49,15 @@ impl Solution {
     }
 
     fn reverse_digits(x: i32) -> i32 {
-        121
+        let mut result = 0;
+        let mut copy = x;
+        while copy > 9 {
+            result = result + (copy % 10);
+            result *= 10;
+            copy /= 10;
+        }
+        result += copy;
+        result
     }
 }
 
