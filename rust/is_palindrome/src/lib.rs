@@ -40,8 +40,7 @@ impl Solution {
             return false;
         }
 
-        let result = Self::reverse_digits(x);
-        x == result
+        x == Self::reverse_digits(x)
     }
 
     fn reverse_digits(x: i32) -> i32 {
