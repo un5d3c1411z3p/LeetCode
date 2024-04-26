@@ -36,7 +36,11 @@ Follow up: Could you solve it without converting the integer to a string?
 struct Solution {}
 impl Solution {
     pub fn is_palindrome(x: i32) -> bool {
-        false
+        if x < 0 {
+            return false;
+        }
+
+        true
     }
 }
 
