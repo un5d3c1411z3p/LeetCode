@@ -29,7 +29,22 @@ strs[i] consists of only lowercase English letters.
 struct Solution {}
 impl Solution {
     pub fn longest_common_prefix(strs: Vec<String>) -> String {
-        "".to_string()
+        if strs.is_empty() {
+            return "".to_string();
+        }
+        if strs.len() == 1 {
+            return strs.first().unwrap().to_string();
+        }
+
+        strs.iter()
+            .skip(1)
+            .fold(strs.first().unwrap().to_string(), |acc, x| {
+                acc.chars()
+                    .zip(x.chars())
+                    .take_while(|(a, b)| a == b)
+                    .map(|(a, _)| a)
+                    .collect()
+            })
     }
 }
 
