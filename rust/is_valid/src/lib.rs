@@ -35,7 +35,33 @@ s consists of parentheses only '()[]{}'.
 struct Solution {}
 impl Solution {
     pub fn is_valid(s: String) -> bool {
-        false
+        if s.is_empty() {
+            return false;
+        }
+
+        let mut v = vec![];
+        for c in s.chars() {
+            match c {
+                ')' => {
+                    if Some('(') != v.pop() {
+                        return false;
+                    }
+                }
+                '}' => {
+                    if Some('{') != v.pop() {
+                        return false;
+                    }
+                }
+                ']' => {
+                    if Some('[') != v.pop() {
+                        return false;
+                    }
+                }
+                _ => v.push(c),
+            }
+        }
+
+        v.is_empty()
     }
 }
 
