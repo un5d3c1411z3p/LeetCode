@@ -53,12 +53,17 @@ impl Solution {
         list1: Option<Box<ListNode>>,
         list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        match (list1, list2) {
-            (None, None) => None,
-            (None, Some(list)) => Some(list),
-            (Some(list), None) => Some(list),
-            (Some(list_one), Some(list_two)) => todo!(),
+        let mut result = list1;
+        let mut l2 = list2;
+
+        let mut temporary = &mut result;
+        while l2.is_some() {
+            if temporary.is_none() || l2.as_ref()?.val < temporary.as_ref()?.val {
+                std::mem::swap(temporary, &mut l2);
+            }
+            temporary = &mut temporary.as_mut()?.next;
         }
+        result
     }
 }
 
