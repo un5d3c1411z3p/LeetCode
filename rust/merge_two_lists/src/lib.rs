@@ -53,7 +53,12 @@ impl Solution {
         list1: Option<Box<ListNode>>,
         list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-        None
+        match (list1, list2) {
+            (None, None) => None,
+            (None, Some(list)) => Some(list),
+            (Some(list), None) => Some(list),
+            (Some(list_one), Some(list_two)) => todo!(),
+        }
     }
 }
 
