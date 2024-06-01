@@ -43,10 +43,13 @@ Constraints:
 -100 <= nums[i] <= 100
 nums is sorted in non-decreasing order.
  */
+use itertools::Itertools;
+
 struct Solution {}
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        0
+        let result = nums.to_owned();
+        result.into_iter().unique().count().try_into().unwrap()
     }
 }
 
