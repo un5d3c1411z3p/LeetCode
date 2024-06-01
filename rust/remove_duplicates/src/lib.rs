@@ -46,21 +46,8 @@ nums is sorted in non-decreasing order.
 struct Solution {}
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        if nums.is_empty() {
-            return 0;
-        }
-
-        let mut k = 0;
-        let mut j = 1;
-        while j < nums.len() {
-            if nums[k] != nums[j] {
-                k += 1;
-                nums[k] = nums[j];
-            }
-            j += 1;
-        }
-
-        (k + 1) as i32
+        nums.dedup();
+        nums.len() as i32
     }
 }
 
