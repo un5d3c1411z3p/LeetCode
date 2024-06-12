@@ -26,6 +26,17 @@ haystack and needle consist of only lowercase English characters.
 struct Solution {}
 impl Solution {
     pub fn str_str(haystack: String, needle: String) -> i32 {
+        for (i, val) in haystack.chars().enumerate() {
+            if val == needle.chars().nth(0).unwrap() {
+                if needle.len() > haystack.len() - i {
+                    return -1;
+                }
+                if haystack[i..(i + needle.len())].eq(&needle) {
+                    return i as i32;
+                }
+            }
+        }
+
         -1
     }
 }
