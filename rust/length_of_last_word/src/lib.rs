@@ -34,7 +34,7 @@ There will be at least one word in s.
 struct Solution {}
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
-        0
+        s.trim().split(' ').last().unwrap().len() as i32
     }
 }
 
