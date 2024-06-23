@@ -40,7 +40,21 @@ digits does not contain any leading 0's.
 struct Solution {}
 impl Solution {
     pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
-        digits
+        let mut result = digits.clone();
+        let length = result.len();
+        if result[length - 1] == 9 {
+            if length < 2 {
+                result[length - 1] = 1;
+                result.push(0);
+            } else {
+                result[length - 2] += 1;
+                result[length - 1] = 0;
+            }
+        } else {
+            result[length - 1] += 1;
+        }
+
+        result
     }
 }
 
