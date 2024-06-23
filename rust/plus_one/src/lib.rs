@@ -56,5 +56,7 @@ mod tests {
         assert_eq!(result, [4, 3, 2, 2].to_vec());
         let result = Solution::plus_one([9].to_vec());
         assert_eq!(result, [1, 0].to_vec());
+        let result = Solution::plus_one([4, 3, 2, 9].to_vec());
+        assert_eq!(result, [4, 3, 3, 0].to_vec());
     }
 }
