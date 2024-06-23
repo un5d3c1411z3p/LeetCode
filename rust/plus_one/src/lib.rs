@@ -44,21 +44,16 @@ impl Solution {
 
         println!("[Before] r is {:?}", r);
 
-        let mut carry = 0;
         for e in r.iter_mut().rev() {
             if *e > 8 {
                 *e = 0;
-                carry = 1;
             } else {
                 *e += 1;
-                carry = 0;
-                break;
+                return r;
             }
         }
 
-        if carry == 1 {
-            r.insert(0, 1);
-        }
+        r.insert(0, 1);
 
         println!("[After] r is {:?}", r);
 
