@@ -30,7 +30,100 @@ impl Solution {
         if b.is_empty() {
             return a;
         }
+
         let mut result = "".to_string();
+
+        let mut a_iter = a.chars().rev();
+        let mut b_iter = b.chars().rev();
+        let mut carry = '0';
+        loop {
+            match (a_iter.next(), b_iter.next()) {
+                (Some(x), Some(y)) => match (x, y) {
+                    ('1', '1') => {
+                        if carry == '1' {
+                            result.insert(0, '1');
+                        } else {
+                            result.insert(0, '0');
+                        }
+                        carry = '1';
+                    }
+                    ('0', '1') => {
+                        if carry == '1' {
+                            result.insert(0, '0');
+                            carry = '1';
+                        } else {
+                            result.insert(0, '1');
+                            carry = '0';
+                        }
+                    }
+                    ('1', '0') => {
+                        if carry == '1' {
+                            result.insert(0, '0');
+                            carry = '1';
+                        } else {
+                            result.insert(0, '1');
+                            carry = '0';
+                        }
+                    }
+                    ('0', '0') => {
+                        if carry == '1' {
+                            result.insert(0, '1');
+                            carry = '0'
+                        } else {
+                            result.insert(0, '0');
+                            carry = '0';
+                        }
+                    }
+                    (_, _) => todo!(),
+                },
+                (Some(x), None) => match x {
+                    '0' => {
+                        if carry == '1' {
+                            result.insert(0, '1');
+                        } else {
+                            result.insert(0, '0');
+                        }
+                        carry = '0';
+                    }
+                    '1' => {
+                        if carry == '1' {
+                            result.insert(0, '0');
+                            carry = '1';
+                        } else {
+                            result.insert(0, '1');
+                            carry = '0';
+                        }
+                    }
+                    _ => todo!(),
+                },
+                (None, Some(y)) => match y {
+                    '0' => {
+                        if carry == '1' {
+                            result.insert(0, '1');
+                        } else {
+                            result.insert(0, '0');
+                        }
+                        carry = '0';
+                    }
+                    '1' => {
+                        if carry == '1' {
+                            result.insert(0, '0');
+                            carry = '1';
+                        } else {
+                            result.insert(0, '1');
+                            carry = '0';
+                        }
+                    }
+                    _ => todo!(),
+                },
+                (_, _) => break,
+            }
+        }
+
+        if carry == '1' {
+            result.insert(0, '1');
+        }
+
         result
     }
 }
