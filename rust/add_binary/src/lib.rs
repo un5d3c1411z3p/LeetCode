@@ -24,7 +24,14 @@ Each string does not contain leading zeros except for the zero itself.
 struct Solution {}
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
-        "".to_string()
+        if a.is_empty() {
+            return b;
+        }
+        if b.is_empty() {
+            return a;
+        }
+        let mut result = "".to_string();
+        result
     }
 }
 
@@ -33,7 +40,15 @@ mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
+    fn add_test_cases() {
+        let result = Solution::add_binary("".to_string(), "1".to_string());
+        assert_eq!(result, "1".to_string());
+        let result = Solution::add_binary("11".to_string(), "".to_string());
+        assert_eq!(result, "11".to_string());
+    }
+
+    #[test]
+    fn default_test_cases() {
         let result = Solution::add_binary("11".to_string(), "1".to_string());
         assert_eq!(result, "100".to_string());
         let result = Solution::add_binary("1010".to_string(), "1011".to_string());
