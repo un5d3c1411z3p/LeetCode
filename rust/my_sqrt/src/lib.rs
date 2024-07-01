@@ -29,13 +29,14 @@ struct Solution {}
 impl Solution {
     pub fn my_sqrt(x: i32) -> i32 {
         let mut result = 0;
-        for i in 1..=i32::MAX {
-            if i * i > x {
+        for i in 1..=u32::MAX {
+            if i * i > x as u32 {
                 break;
             }
             result = i;
+            println!("result is {result}");
         }
-        result
+        result as i32
     }
 }
 
