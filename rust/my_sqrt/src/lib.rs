@@ -28,7 +28,14 @@ Constraints:
 struct Solution {}
 impl Solution {
     pub fn my_sqrt(x: i32) -> i32 {
-        0
+        let mut result = 0;
+        for i in 2..=i32::MAX {
+            if i * i > x {
+                break;
+            }
+            result = i;
+        }
+        result
     }
 }
 
