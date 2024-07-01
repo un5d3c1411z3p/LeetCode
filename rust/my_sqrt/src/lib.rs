@@ -50,4 +50,10 @@ mod tests {
         let result = Solution::my_sqrt(8);
         assert_eq!(result, 2);
     }
+
+    #[test]
+    fn added_test_cases() {
+        let result = Solution::my_sqrt(1);
+        assert_eq!(result, 1);
+    }
 }
