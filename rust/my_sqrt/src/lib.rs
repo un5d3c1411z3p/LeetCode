@@ -55,5 +55,7 @@ mod tests {
     fn added_test_cases() {
         let result = Solution::my_sqrt(1);
         assert_eq!(result, 1);
+        let result = Solution::my_sqrt(2147395600);
+        assert_eq!(result, 46340);
     }
 }
